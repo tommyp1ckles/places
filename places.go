@@ -22,7 +22,6 @@ const (
 
 	// ENV config variables.
 	GoogleMapsSecretKey = "GOOGLE_MAPS_SECRET"
-	GoogleMapsIDKey     = "GOOGLE_MAPS_ID"
 
 	// Address component types
 	//AddressType = 0
