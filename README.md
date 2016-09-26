@@ -1,5 +1,5 @@
 # Places
-Tells you where all your photos where taken at.
+Prints information about where all your photos where taken.
 
 ## Usage
 
