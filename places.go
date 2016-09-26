@@ -146,13 +146,6 @@ func VisitPrintLocation(path string, f os.FileInfo, err error) error {
 			continue
 		}
 
-		type Location struct {
-			City    string
-			Country string
-			Street  string
-			Number  string
-			State   string
-		}
 		loc.printStats(file.Name())
 	}
 	return nil
