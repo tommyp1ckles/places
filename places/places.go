@@ -1,4 +1,4 @@
-package main
+package places
 
 import (
 	"fmt"
@@ -18,28 +18,31 @@ import (
 )
 
 const (
-	NoPath = "A path is required"
-
-	// ENV config variables.
+	// GoogleMapsSecretKey is the enviroment key for the Google Maps API token.
 	GoogleMapsSecretKey = "GOOGLE_MAPS_SECRET"
 
-	// Address component types
-	//AddressType = 0
 	StreetType  = "neighborhood"
 	NumberType  = "street_number"
 	StateType   = "administrative_area_level_1"
 	CountryType = "country"
 	CityType    = "political"
 
+	// Regexp to see if the file path appears to be of a supported image type
+	// (currently jpg/png).
 	ImgRegexp = "^.*\\.(jpg|jpeg|png)"
 )
 
 var (
+	ErrNoToken = fmt.Errorf(
+		"No google maps API token (export %s=<API_TOKEN>).",
+		GoogleMapsSecretKey,
+	)
 	mapsClient *maps.Client
 	imgRe      = regexp.MustCompile(ImgRegexp)
 	quiet      = true
 )
 
+// Location desribes a location by various address elements.
 type Location struct {
 	City    string
 	Country string
@@ -163,20 +166,21 @@ func createMapsClient() error {
 		if err != nil {
 			return err
 		}
+	} else {
+		return ErrNoToken
 	}
 	return nil
 }
 
-func main() {
+// ListPlacesRecursively descends into a path and lists all image places in
+// that directory.
+func ListPlacesRecursively(path string) error {
 	if err := createMapsClient(); err != nil {
-		log.Fatalln("Could not connect to maps API: ", err)
+		return err
 	}
-	if len(os.Args) < 2 {
-		log.Fatalln(NoPath)
-	}
-	path := os.Args[1]
 	err := filepath.Walk(path, VisitPrintLocation)
 	if err != nil {
-		log.Fatalln(err)
+		return err
 	}
+	return nil
 }
