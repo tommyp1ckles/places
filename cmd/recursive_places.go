@@ -8,6 +8,14 @@ import (
 )
 
 var (
+	config = places.Config{}
+)
+
+const (
+	StatsMessage = "Show stats about your photo places"
+)
+
+var (
 	RecursivePlacesCmds = &cobra.Command{
 		Use:   "list",
 		Short: "<dir> ...",
@@ -16,7 +24,7 @@ var (
 				cmd.Help()
 			}
 			for _, path := range args {
-				err := places.ListPlacesRecursively(path)
+				err := places.ListPlacesRecursively(path, &config)
 				if err != nil && err == places.ErrNoToken {
 					fmt.Println("Could not connect to Google Maps API, likely an invalid API Token.")
 					return
