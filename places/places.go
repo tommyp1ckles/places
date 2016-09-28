@@ -37,6 +37,7 @@ var (
 		"No google maps API token (export %s=<API_TOKEN>).",
 		GoogleMapsSecretKey,
 	)
+
 	mapsClient *maps.Client
 	imgRe      = regexp.MustCompile(ImgRegexp)
 	quiet      = true
@@ -105,8 +106,8 @@ func GetImageLocationData(path string) (*Location, error) {
 	return l, nil
 }
 
-// printsStats prints a formatted Location and it's corresponding filename.
-func (loc *Location) printStats(filename string) {
+// prints a formatted Location and it's corresponding filename.
+func (loc *Location) printTable(filename string) {
 	t := tablewriter.NewWriter(os.Stdout)
 	t.SetHeader([]string{filename, ""})
 	if loc.Number != "" {
@@ -126,6 +127,19 @@ func (loc *Location) printStats(filename string) {
 	}
 	t.Render()
 }
+
+func printStats() {
+	t := tablewriter.NewWriter(os.Stdout)
+	t.SetHeader([]string{"Location", "Count"})
+	for key, val := range cityFreqs {
+		t.Append([]string{key, fmt.Sprintf("%d", val)})
+	}
+	t.Render()
+}
+
+var (
+	cityFreqs map[string]int
+)
 
 // VisitPrintLocation implements a filepath.]WalkFunction that prints the
 // location where an image was taken.
@@ -149,7 +163,12 @@ func VisitPrintLocation(path string, f os.FileInfo, err error) error {
 			continue
 		}
 
-		loc.printStats(file.Name())
+		loc.printTable(file.Name())
+		if _, ok := cityFreqs[loc.City]; ok {
+			cityFreqs[loc.City]++
+		} else {
+			cityFreqs[loc.City] = 1
+		}
 	}
 	return nil
 }
@@ -174,13 +193,17 @@ func createMapsClient() error {
 
 // ListPlacesRecursively descends into a path and lists all image places in
 // that directory.
-func ListPlacesRecursively(path string) error {
+func ListPlacesRecursively(path string, config *Config) error {
+	cityFreqs = make(map[string]int)
 	if err := createMapsClient(); err != nil {
 		return err
 	}
 	err := filepath.Walk(path, VisitPrintLocation)
 	if err != nil {
 		return err
+	}
+	if config.Stats {
+		printStats()
 	}
 	return nil
 }

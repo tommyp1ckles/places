@@ -15,6 +15,13 @@ func CreatePlacesCommand() *cobra.Command {
 			}
 		},
 	}
+	PlacesRootCommand.Flags().BoolVarP(
+		&config.Stats,
+		"stats",
+		"b",
+		false,
+		"Show places stats table",
+	)
 	PlacesRootCommand.AddCommand(RecursivePlacesCmds)
 	return &PlacesRootCommand
 }
