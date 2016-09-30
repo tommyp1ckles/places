@@ -173,9 +173,8 @@ func createMapsClient() error {
 	return nil
 }
 
-// ListPlacesRecursively descends into a path and lists all image places in
-// that directory.
-func ListPlacesRecursively(path string) error {
+// Recursive prints all places in a directory, recursiveley.
+func Recursive(path string) error {
 	if err := createMapsClient(); err != nil {
 		return err
 	}
@@ -186,8 +185,8 @@ func ListPlacesRecursively(path string) error {
 	return nil
 }
 
-// ListPlacesSingleFile finds the place where a single photo was taken.
-func ListPlacesSingleFile(imagePath string) error {
+// Image finds the place where a single photo was taken.
+func Image(imagePath string) error {
 	if err := createMapsClient(); err != nil {
 		return err
 	}

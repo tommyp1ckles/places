@@ -7,8 +7,8 @@ import (
 )
 
 func main() {
-	placesRootCommand := cmd.CreatePlacesCommand()
-	if err := placesRootCommand.Execute(); err != nil {
+	root := cmd.CreatePlacesRootCommand()
+	if err := root.Execute(); err != nil {
 		log.Fatalln(err)
 	}
 }

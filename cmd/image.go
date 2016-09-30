@@ -16,7 +16,7 @@ var (
 				cmd.Help()
 			}
 			for _, path := range args {
-				err := places.ListPlacesSingleFile(path)
+				err := places.Image(path)
 				if err != nil {
 					fmt.Println("Error: ", err)
 					return
