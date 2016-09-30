@@ -7,6 +7,7 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
+	"strings"
 
 	"golang.org/x/net/context"
 
@@ -182,5 +183,19 @@ func ListPlacesRecursively(path string) error {
 	if err != nil {
 		return err
 	}
+	return nil
+}
+
+// ListPlacesSingleFile finds the place where a single photo was taken.
+func ListPlacesSingleFile(imagePath string) error {
+	if err := createMapsClient(); err != nil {
+		return err
+	}
+	loc, err := GetImageLocationData(imagePath)
+	if err != nil {
+		return err
+	}
+	filename := strings.Split(imagePath, "/")[len(strings.Split(imagePath, "/"))-1]
+	loc.printStats(filename)
 	return nil
 }
