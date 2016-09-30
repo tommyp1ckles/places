@@ -38,6 +38,8 @@ var (
 		"No google maps API token (export %s=<API_TOKEN>).",
 		GoogleMapsSecretKey,
 	)
+	ErrClientNotInitialized = fmt.Errorf("Google maps client has not been initialized")
+
 	mapsClient *maps.Client
 	imgRe      = regexp.MustCompile(ImgRegexp)
 	quiet      = true
@@ -94,6 +96,10 @@ func GetImageLocationData(path string) (*Location, error) {
 	gcr.LatLng = &maps.LatLng{
 		Lat: lat,
 		Lng: lng,
+	}
+
+	if mapsClient == nil {
+		return nil, ErrClientNotInitialized
 	}
 
 	results, err := mapsClient.Geocode(context.Background(), gcr)
