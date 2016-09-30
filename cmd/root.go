@@ -6,7 +6,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-func CreatePlacesCommand() *cobra.Command {
+func CreatePlacesRootCommand() *cobra.Command {
 	PlacesRootCommand := cobra.Command{
 		Use: "places",
 		Run: func(cmd *cobra.Command, args []string) {

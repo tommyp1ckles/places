@@ -16,7 +16,7 @@ var (
 				cmd.Help()
 			}
 			for _, path := range args {
-				err := places.ListPlacesRecursively(path)
+				err := places.Recursive(path)
 				if err != nil && err == places.ErrNoToken {
 					fmt.Println("Could not connect to Google Maps API, likely an invalid API Token.")
 					return
