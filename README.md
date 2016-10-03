@@ -1,4 +1,4 @@
-# Places
+# Places 🗻
 Prints information about where all your photos where taken.
 
 It uses the images EXIF GPS fields so it only works with photos taken with devices that record GPS location (and have the feature enabled).
