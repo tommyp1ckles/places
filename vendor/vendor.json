@@ -1,0 +1,79 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "40vJyUB4ezQSn/NSadsKEOrudMc=",
+			"path": "github.com/inconshreveable/mousetrap",
+			"revision": "76626ae9c91c4f2a10f34cad8ce83ea42c93bb75",
+			"revisionTime": "2014-10-17T20:07:13Z"
+		},
+		{
+			"checksumSHA1": "DdH3xAkzAWJ4B/LGYJyCeRsly2I=",
+			"path": "github.com/mattn/go-runewidth",
+			"revision": "d6bea18f789704b5f83375793155289da36a3c7f",
+			"revisionTime": "2016-03-15T04:07:12Z"
+		},
+		{
+			"checksumSHA1": "0KQQY1f4p/HmCQE7HjdgesEoe3Y=",
+			"path": "github.com/olekukonko/tablewriter",
+			"revision": "bdcc175572fd7abece6c831e643891b9331bc9e7",
+			"revisionTime": "2016-09-23T12:54:01Z"
+		},
+		{
+			"checksumSHA1": "Q68FxXX04PtPDIG7C1RlSDhx/ko=",
+			"path": "github.com/rwcarlsen/goexif/exif",
+			"revision": "709fab3d192d7c62f86043caff1e7e3fb0f42bd8",
+			"revisionTime": "2015-05-20T14:06:47Z"
+		},
+		{
+			"checksumSHA1": "smHMy/7tOLNYD7ghqesrqslA6Jg=",
+			"path": "github.com/rwcarlsen/goexif/mknote",
+			"revision": "709fab3d192d7c62f86043caff1e7e3fb0f42bd8",
+			"revisionTime": "2015-05-20T14:06:47Z"
+		},
+		{
+			"checksumSHA1": "0+tTLlssYWyGuq+vQs4IiPIXJW4=",
+			"path": "github.com/rwcarlsen/goexif/tiff",
+			"revision": "709fab3d192d7c62f86043caff1e7e3fb0f42bd8",
+			"revisionTime": "2015-05-20T14:06:47Z"
+		},
+		{
+			"checksumSHA1": "fEGgcE+iSzLkxdrbRj7j/vV7a7E=",
+			"path": "github.com/spf13/cobra",
+			"revision": "9c28e4bbd74e5c3ed7aacbc552b2cab7cfdfe744",
+			"revisionTime": "2016-08-30T17:49:25Z"
+		},
+		{
+			"checksumSHA1": "b1FgvXRMwcr3D1litcrDNxgowBw=",
+			"path": "github.com/spf13/pflag",
+			"revision": "c7e63cf4530bcd3ba943729cee0efeff2ebea63f",
+			"revisionTime": "2016-09-15T15:31:01Z"
+		},
+		{
+			"checksumSHA1": "9jjO5GjLa0XF/nfWihF02RoH4qc=",
+			"path": "golang.org/x/net/context",
+			"revision": "a333c534c871727fb95745870e8b98a69447f2ce",
+			"revisionTime": "2016-09-29T23:53:44Z"
+		},
+		{
+			"checksumSHA1": "WHc3uByvGaMcnSoI21fhzYgbOgg=",
+			"path": "golang.org/x/net/context/ctxhttp",
+			"revision": "a333c534c871727fb95745870e8b98a69447f2ce",
+			"revisionTime": "2016-09-29T23:53:44Z"
+		},
+		{
+			"checksumSHA1": "px74ysa3Eg3RQj5YdM7fz9TkPfA=",
+			"path": "googlemaps.github.io/maps",
+			"revision": "ce8994f7a138534e9da9fd27c5424eeea20ac563",
+			"revisionTime": "2016-08-30T05:06:11Z"
+		},
+		{
+			"checksumSHA1": "T47E4DD/+UCGq0rAc70yGCEWJ0w=",
+			"path": "googlemaps.github.io/maps/internal",
+			"revision": "ce8994f7a138534e9da9fd27c5424eeea20ac563",
+			"revisionTime": "2016-08-30T05:06:11Z"
+		}
+	],
+	"rootPath": "github.com/tommyp1ckles/places"
+}
