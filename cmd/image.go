@@ -10,7 +10,7 @@ import (
 var (
 	SingleFileCmds = &cobra.Command{
 		Use:   "image",
-		Short: "<dir> ...",
+		Short: "<image_path>",
 		Run: func(cmd *cobra.Command, args []string) {
 			if len(args) < 1 {
 				cmd.Help()
