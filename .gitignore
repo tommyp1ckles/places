@@ -22,3 +22,8 @@ _testmain.go
 *.exe
 *.test
 *.prof
+
+# Ignore pulled vendor deps
+/vendor/golang.org
+/vendor/github.com
+/vendor/googlemaps.github.io

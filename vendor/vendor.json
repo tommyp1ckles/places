@@ -73,6 +73,10 @@
 			"path": "googlemaps.github.io/maps/internal",
 			"revision": "ce8994f7a138534e9da9fd27c5424eeea20ac563",
 			"revisionTime": "2016-08-30T05:06:11Z"
+		},
+		{
+			"path": "vendor",
+			"revision": ""
 		}
 	],
 	"rootPath": "github.com/tommyp1ckles/places"
