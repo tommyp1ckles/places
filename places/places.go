@@ -5,7 +5,6 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
-	"path/filepath"
 	"regexp"
 	"strings"
 
@@ -54,27 +53,6 @@ type Location struct {
 	State   string
 }
 
-// SetLocation finds the relevant field types in a slice of address components
-// and converts and sets the corresponding Locatio fields.
-func (l *Location) SetLocation(addr []maps.AddressComponent) {
-	// the first entry seems to be the mose useful one.
-	for _, ac := range addr {
-		switch ac.Types[0] {
-		case StreetType:
-			l.Street = ac.LongName
-		case StateType:
-			l.State = ac.LongName
-		case CountryType:
-			l.Country = ac.LongName
-		case NumberType:
-			l.Number = ac.LongName
-		case CityType:
-			l.City = ac.LongName
-		}
-
-	}
-}
-
 // GetImageLocationData returns the Location at which an image, at a certain path
 // was taken.
 func GetImageLocationData(path string) (*Location, error) {
@@ -110,6 +88,27 @@ func GetImageLocationData(path string) (*Location, error) {
 	l := &Location{}
 	l.SetLocation(results[0].AddressComponents)
 	return l, nil
+}
+
+// SetLocation finds the relevant field types in a slice of address components
+// and converts and sets the corresponding Locatio fields.
+func (l *Location) SetLocation(addr []maps.AddressComponent) {
+	// the first entry seems to be the mose useful one.
+	for _, ac := range addr {
+		switch ac.Types[0] {
+		case StreetType:
+			l.Street = ac.LongName
+		case StateType:
+			l.State = ac.LongName
+		case CountryType:
+			l.Country = ac.LongName
+		case NumberType:
+			l.Number = ac.LongName
+		case CityType:
+			l.City = ac.LongName
+		}
+
+	}
 }
 
 // printsStats prints a formatted Location and it's corresponding filename.
@@ -175,18 +174,6 @@ func createMapsClient() error {
 		}
 	} else {
 		return ErrNoToken
-	}
-	return nil
-}
-
-// Recursive prints all places in a directory, recursiveley.
-func Recursive(path string) error {
-	if err := createMapsClient(); err != nil {
-		return err
-	}
-	err := filepath.Walk(path, VisitPrintLocation)
-	if err != nil {
-		return err
 	}
 	return nil
 }
