@@ -17,5 +17,6 @@ func CreatePlacesRootCommand() *cobra.Command {
 	}
 	PlacesRootCommand.AddCommand(RecursivePlacesCmds)
 	PlacesRootCommand.AddCommand(SingleFileCmds)
+	PlacesRootCommand.AddCommand(GotoCmds)
 	return &PlacesRootCommand
 }
