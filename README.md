@@ -7,7 +7,11 @@ It uses the images EXIF GPS fields so it only works with photos taken with devic
 
 `export GOOGLE_MAPS_SECRET=<your google maps token>`
 
-`go run places.go <directory to search for images>`
+`go run places.go list <directory to search for images>`
+
+or
+
+`go run places.go image <path to image>`
 
 ## Sample output
 ```
