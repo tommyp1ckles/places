@@ -115,19 +115,34 @@ func (loc *Location) printStats(filename string) {
 	t := tablewriter.NewWriter(os.Stdout)
 	t.SetHeader([]string{filename, ""})
 	if loc.Number != "" {
-		t.Append([]string{"Street Number", loc.Number})
+		t.Append([]string{
+			fmt.Sprintf("%20s", "Street Number"),
+			loc.Number,
+		})
 	}
 	if loc.Street != "" {
-		t.Append([]string{"Street", loc.Street})
+		t.Append([]string{
+			fmt.Sprintf("%20s", "Street"),
+			loc.Street,
+		})
 	}
 	if loc.City != "" {
-		t.Append([]string{"City", loc.City})
+		t.Append([]string{
+			fmt.Sprintf("%20s", "City"),
+			loc.City,
+		})
 	}
 	if loc.State != "" {
-		t.Append([]string{"State", loc.State})
+		t.Append([]string{
+			fmt.Sprintf("%20s", "State"),
+			loc.State,
+		})
 	}
 	if loc.Country != "" {
-		t.Append([]string{"Country", loc.Country})
+		t.Append([]string{
+			fmt.Sprintf("%20s", "Country"),
+			loc.Country,
+		})
 	}
 	t.Render()
 }
