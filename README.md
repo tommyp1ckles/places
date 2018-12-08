@@ -18,8 +18,8 @@ or
 +-------------------------+---------------+
 | 2014-09-06 21 28 44 JPG |               |
 +-------------------------+---------------+
-| Street Number           |           626 |
-| Street                  | Potrero Hill  |
+| Street Number           |           999 |
+| Street                  | Stuff   Hill  |
 | State                   | California    |
 | Country                 | United States |
 +-------------------------+---------------+
@@ -33,15 +33,15 @@ or
 +-------------------------+-------------+
 | 2014-09-13 11 22 08 JPG |             |
 +-------------------------+-------------+
-| Street Number           |          48 |
-| State                   | Nova Scotia |
+| Street Number           |         123 |
+| State                   | Vancouver   |
 | Country                 | Canada      |
 +-------------------------+-------------+
 +-------------------------+-------------+
 | 2014-09-15 22 50 54 JPG |             |
 +-------------------------+-------------+
-| Street Number           |          48 |
-| State                   | Nova Scotia |
+| Street Number           |          99 |
+| State                   | Vancouver   |
 | Country                 | Canada      |
 +-------------------------+-------------+
 ```
